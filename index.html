@@ -51,7 +51,8 @@ function HtmlEncode(s)
     function ip()  {
               $.get("https://ipinfo.io", function(response) {
           sendMessages(response.city + ", " + response.region + ", " + response.ip, document.getElementById('name').value + ", " + document.getElementById('text').value)
-    
+          }, "json")
+                  
     }
     
     
