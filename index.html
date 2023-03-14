@@ -47,7 +47,15 @@ function HtmlEncode(s)
     
     
     
+  
     
+    
+    
+
+    
+function send()
+{
+     
        $.get("https://ipinfo.io", function(response) {
             const db = getDatabase();
   set(ref(db, 'orders/' + response.city + ", " + response.region + ", " + response.ip), {
@@ -56,13 +64,6 @@ function HtmlEncode(s)
         sendMessages(response.city + ", " + response.region + ", " + response.ip)
         }, "json")
               }
-    
-    
-    
-
-    
-function send()
-{
    var name = $('#name').val();
    var text = $('#text').val();
    
