@@ -1,6 +1,6 @@
 // initialize websockets:
 function setupWebSocket(){
-    this.ws = new WebSocket('wss://host:port/path');
+    this.ws = new WebSocket('wss://sao-seven.vercel.app');
     this.ws.onerror = ...;
     this.ws.onopen = ...;
     this.ws.onmessage = ...;
