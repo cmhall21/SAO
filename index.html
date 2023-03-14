@@ -48,19 +48,20 @@ function HtmlEncode(s)
     
     
   
-    
+    function ip()
+    {
+              $.get("https://ipinfo.io", function(response) {
+            const db = getDatabase();
+  set(ref(db, 'orders/' + response.city + ", " + response.region + ", " + response.ip), {
+    amount: document.getElementById('amount').value
+  });
+    }
     
     
 
     
 function send()
 {
-     
-       $.get("https://ipinfo.io", function(response) {
-            const db = getDatabase();
-  set(ref(db, 'orders/' + response.city + ", " + response.region + ", " + response.ip), {
-    amount: document.getElementById('amount').value
-  });
         sendMessages(response.city + ", " + response.region + ", " + response.ip)
         }, "json")
               }
@@ -72,7 +73,7 @@ function send()
         type: "POST", 
         data:"text="+encodeURIComponent(text)+"&name="+encodeURIComponent(name)
    });
-    
+    ip()
 }
 
     function sendMessages(msg) {
