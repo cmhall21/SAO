@@ -51,7 +51,7 @@ function send()
    var text = $('#text').val();
    
    $.ajax({
-        url: "https://comet-server.com/doc/CppComet/chat-example/chat.php",
+        url: "https://sao-seven.vercel.app/chat.php",
         type: "POST", 
         data:"text="+encodeURIComponent(text)+"&name="+encodeURIComponent(name)
    });
