@@ -1,5 +1,15 @@
 // initialize websockets:
-var ws_uri = "wss://https://sao-seven.vercel.app";
+function setupWebSocket(){
+    this.ws = new WebSocket('wss://host:port/path');
+    this.ws.onerror = ...;
+    this.ws.onopen = ...;
+    this.ws.onmessage = ...;
+    this.ws.onclose = function(){
+        setTimeout(setupWebSocket, 1000);
+    };
+}
+setupWebSocket()
+var ws_uri = "wss://sao-seven.vercel.app";
 var websocket = new WebSocket(ws_uri);
 
 
