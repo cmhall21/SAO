@@ -32,6 +32,7 @@ $(document).ready(function()
     cometApi.subscription("simplechat.newMessage", function(event){
         $("#web_chat").append('<b>'+HtmlEncode(event.data.name)+'</b>')
         $("#web_chat").append('<pre>'+HtmlEncode(event.data.text)+'</pre>')
+        $("#web_chat").css("color", "red");
         $("#web_chat").append('<br>')
         if (!event.data.name === "ADMIN"){
             $("#web_chat").css("color", "red");
