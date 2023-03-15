@@ -33,6 +33,9 @@ $(document).ready(function()
         $("#web_chat").append('<b>'+HtmlEncode(event.data.name)+'</b>')
         $("#web_chat").append('<pre>'+HtmlEncode(event.data.text)+'</pre>')
         $("#web_chat").append('<br>')
+        if (!event.data.name === "ADMIN"){
+            $("#web_chat").css("color", "red");
+        }
     })
 })
 
