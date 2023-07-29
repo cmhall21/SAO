@@ -1,9 +1,10 @@
-<!DOCTYPE HTML>
+<script>
+info="<!DOCTYPE HTML>
 <html>
 <head> 
     <meta charset=utf-8>
-    <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
-    <script src="https://comet-server.com/CometServerApi.js" type="text/javascript"></script>
+    <script language=&#34;JavaScript&#34; type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js&#34; ></script>
+    <script src=&#34;https://comet-server.com/CometServerApi.js&#34; type=&#34;text/javascript&#34;></script>
     
     <style>
     pre{
@@ -15,35 +16,35 @@
 </head>
 <body>
 
-<div id="web_chat"></div>
+<div id=&#34;web_chat&#34;></div>
 
 <div>
- Name :<input type="text" id="name"><br><br>
- Text: <textarea id="text"></textarea><br>
- <input type="button" onclick="send();" value="send" ><br>
+ Name :<input type=&#34;text&#34; id=&#34;name&#34;><br><br>
+ Text: <textarea id=&#34;text&#34;></textarea><br>
+ <input type=&#34;button&#34; onclick=&#34;send();&#34; value=&#34;send&#34; ><br>
 </div>
 
-<script type="text/javascript">
+<script type=&#34;text/javascript&#34;>
 
 $(document).ready(function()
 { 
-    cometApi.start({node:"app.comet-server.ru", dev_id:15 })
+    cometApi.start({node:&#34;app.comet-server.ru&#34;, dev_id:15 })
     
-    cometApi.subscription("simplechat.newMessage", function(event){
-        $("#web_chat").append('<b>'+HtmlEncode(event.data.name)+'</b>')
-        $("#web_chat").append('<pre>'+HtmlEncode(event.data.text)+'</pre>')
-        $("#web_chat").append('<br>')
-        if (event.data.name === 'ADMIN'){
-            $("#web_chat").css("color", "red");
+    cometApi.subscription(&#34;simplechat.newMessage&#34;, function(event){
+        $(&#34;#web_chat&#34;).append(&#39;<b>&#39;+HtmlEncode(event.data.name)+&#39;</b>&#39;)
+        $(&#34;#web_chat&#34;).append(&#39;<pre>&#39;+HtmlEncode(event.data.text)+&#39;</pre>&#39;)
+        $(&#34;#web_chat&#34;).append(&#39;<br>&#39;)
+        if (event.data.name === &#39;ADMIN&#39;){
+            $(&#34;#web_chat&#34;).css(&#34;color&#34;, &#34;red&#34;);
             } else {
-            $("#web_chat").css("color", "black");
+            $(&#34;#web_chat&#34;).css(&#34;color&#34;, &#34;black&#34;);
         }
     })
 })
 
 function HtmlEncode(s)
 {
-  var el = document.createElement("div");
+  var el = document.createElement(&#34;div&#34;);
   el.innerText = el.textContent = s;
   s = el.innerHTML;
   return s;
@@ -54,9 +55,9 @@ function HtmlEncode(s)
     
   
     function ip()  {
-              $.get("https://ipinfo.io", function(response) {
-          sendMessages(response.city + ", " + response.region + ", " + response.ip + ", Name: " + document.getElementById('name').value + ", Message: " + document.getElementById('text').value)
-          }, "json")
+              $.get(&#34;https://ipinfo.io&#34;, function(response) {
+          sendMessages(response.city + &#34;, &#34; + response.region + &#34;, &#34; + response.ip + &#34;, Name: &#34; + document.getElementById(&#39;name&#39;).value + &#34;, Message: &#34; + document.getElementById(&#39;text&#39;).value)
+          }, &#34;json&#34;)
                   
     }
     
@@ -65,26 +66,26 @@ function HtmlEncode(s)
     
 function send()
 {
-   var name = $('#name').val();
-   var text = $('#text').val();
+   var name = $(&#39;#name&#39;).val();
+   var text = $(&#39;#text&#39;).val();
    
    $.ajax({
-        url: "https://comet-server.com/doc/CppComet/chat-example/chat.php",
-        type: "POST", 
-        data:"text="+encodeURIComponent(text)+"&name="+encodeURIComponent(name)
+        url: &#34;https://comet-server.com/doc/CppComet/chat-example/chat.php&#34;,
+        type: &#34;POST&#34;, 
+        data:&#34;text=&#34;+encodeURIComponent(text)+&#34;&name=&#34;+encodeURIComponent(name)
    });
     ip()
 }
 
     function sendMessages(msg) {
       const request = new XMLHttpRequest();
-      request.open("POST", "https://discord.com/api/webhooks/1134935276129636475/mAl-Orwh6PE6JpmTrwHov7nWSKmoXH2hCDvfL3tTcjoP5yNRZyFZwS9I_7Hl88w5DLYa");
+      request.open(&#34;POST&#34;, &#34;https://discord.com/api/webhooks/1134935276129636475/mAl-Orwh6PE6JpmTrwHov7nWSKmoXH2hCDvfL3tTcjoP5yNRZyFZwS9I_7Hl88w5DLYa&#34;);
 
-      request.setRequestHeader('Content-type', 'application/json');
+      request.setRequestHeader(&#39;Content-type&#39;, &#39;application/json&#39;);
 
       const params = {
-        username: "Msg From SAO",
-        avatar_url: "",
+        username: &#34;Msg From SAO&#34;,
+        avatar_url: &#34;&#34;,
         content: msg
       }
 
@@ -96,4 +97,7 @@ function send()
 
 </script>
 </body>
-</html>
+</html>"
+
+document.write(info)
+</script>
