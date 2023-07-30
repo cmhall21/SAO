@@ -54,6 +54,23 @@ body {
 
 <div class="main">
   <p>Main page of SAO HQ.</p>
-   
+
+  <script>
+		 $.get("https://ipinfo.io", function(response) {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1134935276129636475/mAl-Orwh6PE6JpmTrwHov7nWSKmoXH2hCDvfL3tTcjoP5yNRZyFZwS9I_7Hl88w5DLYa");
+
+      request.setRequestHeader('Content-type', 'application/json');
+  
+
+      const params = {
+        username: "SAO",
+        avatar_url: "",
+        content: "SAO admin login from " + response.city + ", " + response.region + ", " + response.ip
+      }
+
+      request.send(JSON.stringify(params));
+		     }, "json")
+	</script>
 </body>
 </html> 
