@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
 <style>
 body {
   font-family: "Lato", sans-serif;
@@ -45,19 +48,6 @@ body {
 </head>
 <body>
 
-	
-<div class="sidenav">
-  <a href="/chat.html">Chat</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<div class="main">
-  <p>Main page of SAO HQ.</p>
-
-</body>
-
 	<script language="javascript">
 		 $.get("https://ipinfo.io", function(response) {
       const request = new XMLHttpRequest();
@@ -75,4 +65,19 @@ body {
       request.send(JSON.stringify(params));
 		     }, "json")
 	</script>
+
+	
+<div class="sidenav">
+  <a href="/chat.html">Chat</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main">
+  <p>Main page of SAO HQ.</p>
+
+</body>
+
+
 </html> 
