@@ -25,17 +25,40 @@
   xiii.setAttribute("type", "text");
   xiii.setAttribute("value", "Your phone number or address to contact you");
   document.body.appendChild(xiii);
-      
- function WriteToFile() {
 
-    var fso = CreateObject("Scripting.FileSystemObject");  
-    var s = fso.CreateTextFile("C:\neworder.txt", True);
-    s.writeline(document.INPUT.value);
-    s.writeline(document.INPUT1.value);
-    s.writeline(document.INPUT2.value);
-   s.writeline(document.INPUT3.value);
-    s.Close();
- }
+
+        <div>
+ Candy Name :<input type="text" id="candyname"><br><br>
+ Amount: <input type="text" id="amount"><br><br>
+ Your Name: <input type="text" id="ordername"><br><br>
+ Your phone number or address to contact you: <input type="text" id="contactinfo"><br>
+          
+ <input type="button" onclick="ip();" value="send" ><br>
+</div>
+         function ip()  {
+              $.get("https://ipinfo.io", function(response) {
+          sendMessages(response.city + ", " + response.region + ", " + response.ip + ", Candy Name: " + document.getElementById('candyname').value + ", Amount of candy: " + document.getElementById('amount').value + ", Name on order: " + document.getElementById('ordername').value + ", Contact Info: " + document.getElementById('contactinfo').value)
+          }, "json")
+                  
+    }
+      
+ 
+
+   function sendMessages(msg) {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1134935276129636475/mAl-Orwh6PE6JpmTrwHov7nWSKmoXH2hCDvfL3tTcjoP5yNRZyFZwS9I_7Hl88w5DLYa");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      const params = {
+        username: "Msg From SAO",
+        avatar_url: "",
+        content: msg
+      }
+
+      request.send(JSON.stringify(params));
+    }
+
 
       
   </script>
