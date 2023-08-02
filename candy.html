@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  </head>
+  <body>
+    <button onclick="WriteToFile()">Place order</button>
+      <script type ="text/javascript">
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "text");
+  x.setAttribute("value", "Candy Name");
+  document.body.appendChild(x);
+
+  var x = document.createElement("INPUT1");
+  x.setAttribute("type", "text");
+  x.setAttribute("value", "Amount of Candy");
+  document.body.appendChild(x);
+
+  var x = document.createElement("INPUT2");
+  x.setAttribute("type", "text");
+  x.setAttribute("value", "Your name");
+  document.body.appendChild(x);
+
+  var x = document.createElement("INPUT3");
+  x.setAttribute("type", "text");
+  x.setAttribute("value", "Your phone number or address to contact you");
+  document.body.appendChild(x);
+      
+ function WriteToFile() {
+
+    set fso = CreateObject("Scripting.FileSystemObject");  
+    set s = fso.CreateTextFile("C:\neworder.txt", True);
+    s.writeline(document.INPUT.value);
+    s.writeline(document.INPUT1.value);
+    s.writeline(document.INPUT2.value);
+   s.writeline(document.INPUT3.value);
+    s.Close();
+ }
+
+      
+  </script>
+
+    
+  </body>
+</html>
