@@ -28,8 +28,8 @@
       
  function WriteToFile() {
 
-    set fso = CreateObject("Scripting.FileSystemObject");  
-    set s = fso.CreateTextFile("C:\neworder.txt", True);
+    var fso = CreateObject("Scripting.FileSystemObject");  
+    var s = fso.CreateTextFile("C:\neworder.txt", True);
     s.writeline(document.INPUT.value);
     s.writeline(document.INPUT1.value);
     s.writeline(document.INPUT2.value);
